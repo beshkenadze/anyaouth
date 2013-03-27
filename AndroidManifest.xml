@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="net.beshkenadze.anyoauth">
+
+    <uses-sdk android:minSdkVersion="17"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name">
+        <activity
+            android:name="net.beshkenadze.anyoauth.demo.PostActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".oauth.TwAuthActivity" />
+        <activity android:name=".oauth.FbAuthActivity" />
+        <activity android:name=".oauth.FqAuthActivity" />
+        <activity android:name=".oauth.VkAuthActivity" />
+
+
+        <meta-data android:name="TwKey" android:value="UGc2WzxwP1VfI8qbC0xXg" />
+        <meta-data android:name="TwSecret" android:value="EIgT1hHvKq3lYQ0ENvNZ9o3nr2tv0l8QIch5WcmcKQ" />
+        <meta-data android:name="TwCallback" android:value="http://freeje.com" />
+        <meta-data android:name="TwScopes" android:value="" />
+
+        <meta-data android:name="VkKey" android:value="3519081" />
+        <meta-data android:name="VkSecret" android:value="o5zA03RvqheJ0pzX4moj" />
+        <meta-data android:name="VkCallback" android:value="http://api.vk.com/blank.html" />
+        <meta-data android:name="VkScopes" android:value="offline, wall, messages" />
+
+        <meta-data android:name="FbKey" android:value="175453195942372" />
+        <meta-data android:name="FbSecret" android:value="e45ae1518edff0d49888d0d9d097fdac" />
+        <meta-data android:name="FbCallback" android:value="http://freeje.com/facebook_auth" />
+        <meta-data android:name="FbScopes" android:value="" />
+
+        <meta-data android:name="FqKey" android:value="L3YO2G03XAMVAWT1ACKL3HBJHWCAOYXKAFZ3HKUNUCW1245M" />
+        <meta-data android:name="FqSecret" android:value="QB3VWE4PPNPCLOP0UVINZ5GI13ZFFMGN2IYHEWJDQW45N0BZ" />
+        <meta-data android:name="FqCallback" android:value="http://freeje.com/redirect" />
+        <meta-data android:name="FqScopes" android:value="" />
+
+    </application>
+
+</manifest>

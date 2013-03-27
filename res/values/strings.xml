@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">anyoauth</string>
+    <string name="btn_post">Отправить</string>
+    <string name="hint_post">Ваше сообщение</string>
+    <string name="cbox_vk">Vkontakte</string>
+    <string name="cbox_facebook">Facebook</string>
+    <string name="btn_fq">Foursquare Auth</string>
+    <string name="btn_twitter">Twitter</string>
+    <string name="txtShare">Share text</string>
+    <string name="btnShare">Share</string>
+
+    <string name="share_via">Поделиться с помощью</string>
+</resources>

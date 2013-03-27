@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2012. Aleksandr Beshkenadze <beshkenadze@gmail.com> for Caboo
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eTextPost"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignTop="@+id/btnPost"
+        android:layout_below="@+id/btnPost"
+        android:layout_alignBottom="@+id/btnPost"
+        android:layout_above="@+id/btnPost"
+        android:layout_toLeftOf="@+id/btnPost"
+        android:hint="@string/hint_post"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_post"
+        android:id="@+id/btnPost"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbox_vk"
+        android:id="@+id/cBoxVk"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="13dp"
+        android:layout_below="@+id/eTextPost"
+        android:checked="false"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cbox_facebook"
+        android:id="@+id/cBoxFb"
+        android:layout_toRightOf="@+id/cBoxVk"
+        android:layout_below="@+id/eTextPost"
+        android:checked="false"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_twitter"
+        android:id="@+id/cBoxTw"
+        android:layout_toRightOf="@+id/cBoxVk"
+        android:layout_below="@+id/cBoxVk"
+        android:checked="false"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cBoxVk"
+        android:layout_below="@+id/cBoxTw"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_fq"
+            android:id="@+id/textView"
+            android:layout_alignLeft="@+id/cBoxVk"
+            android:layout_alignBottom="@+id/cBoxTw"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_fq"
+            android:id="@+id/cBoxFq"
+            android:checked="false"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp"
+            android:layout_below="@+id/textView"
+            android:layout_gravity="left|center_vertical"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eTextCheckins"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
