@@ -80,8 +80,8 @@ public abstract class BaseOAuth {
             ApplicationInfo ai = context.getPackageManager().getApplicationInfo(context.getPackageName(),
                     PackageManager.GET_META_DATA);
 
-            setConsumerKey(ai.metaData.get(prefix + "Key").toString());
-            setConsumerSecret(ai.metaData.get(prefix + "Secret").toString());
+            setConsumerKey(ai.metaData.getString(prefix + "Key").toString());
+            setConsumerSecret(ai.metaData.getString(prefix + "Secret").toString());
             setCallback(ai.metaData.getString(prefix + "Callback"));
 
             String scopes = ai.metaData.getString(prefix + "Scopes");
