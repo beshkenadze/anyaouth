@@ -26,6 +26,7 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -37,14 +38,12 @@ public class BaseOAuthViewActivity extends Activity {
     private Handler mHandler = new Handler();
     private boolean mFlagOAuthCallbackStop = false;
     private BaseOAuth.ReturnCallback returnCallback = new BaseOAuth.ReturnCallback() {
-        @Override
         public void onSuccess() {
             Intent _result = new Intent();
             setResult(Activity.RESULT_OK, _result);
             finish();
         }
 
-        @Override
         public void onError() {
             Intent _result = new Intent();
             setResult(Activity.RESULT_CANCELED, _result);
@@ -94,11 +93,10 @@ public class BaseOAuthViewActivity extends Activity {
         mWebview = new WebView(context);
         setContentView(mWebview);
         getBaseAuth().getAuthUrl(new BaseOAuth.OnApiAuthUrlReturn() {
-            @Override
             public void onReturn(final String authorizationUrl) {
                 runOnUiThread(new Runnable() {
-                    @Override
                     public void run() {
+                    	Log.d("", "## authorizationUrl = "  + authorizationUrl);
                         mWebview.getSettings().setJavaScriptEnabled(true);
                         mWebview.loadUrl(authorizationUrl);
                         mWebview.setWebViewClient(new MyWebViewClient());

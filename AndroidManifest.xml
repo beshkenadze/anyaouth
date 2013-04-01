@@ -19,8 +19,19 @@
         <activity android:name=".oauth.FbAuthActivity" />
         <activity android:name=".oauth.FqAuthActivity" />
         <activity android:name=".oauth.VkAuthActivity" />
-
-
+        <activity android:name=".oauth.GoogleAuthActivity" />
+        <activity android:name=".oauth.QQAuthActivity" />
+ 
+        <meta-data android:name="QQKey" android:value="" />
+        <meta-data android:name="QQSecret" android:value="" />
+        <meta-data android:name="QQCallback" android:value="http://freeje.com" />
+        <meta-data android:name="QQScopes" android:value="" />
+        
+        <meta-data android:name="GoogleKey" android:value="anonymous" />
+        <meta-data android:name="GoogleSecret" android:value="anonymous" />
+        <meta-data android:name="GoogleCallback" android:value="http://freeje.com" />
+        <meta-data android:name="GoogleScopes" android:value="https://docs.google.com/feeds/" />
+        
         <meta-data android:name="TwKey" android:value="UGc2WzxwP1VfI8qbC0xXg" />
         <meta-data android:name="TwSecret" android:value="EIgT1hHvKq3lYQ0ENvNZ9o3nr2tv0l8QIch5WcmcKQ" />
         <meta-data android:name="TwCallback" android:value="http://freeje.com" />
@@ -31,7 +42,7 @@
         <meta-data android:name="VkCallback" android:value="http://api.vk.com/blank.html" />
         <meta-data android:name="VkScopes" android:value="offline, wall, messages" />
 
-        <meta-data android:name="FbKey" android:value="175453195942372" />
+        <meta-data android:name="FbKey" android:value="\ 175453195942372" />
         <meta-data android:name="FbSecret" android:value="e45ae1518edff0d49888d0d9d097fdac" />
         <meta-data android:name="FbCallback" android:value="http://freeje.com/facebook_auth" />
         <meta-data android:name="FbScopes" android:value="" />

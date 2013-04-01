@@ -17,7 +17,7 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
         android:layout_alignTop="@+id/btnPost"
-        android:layout_below="@+id/btnPost"
+        android:layout_below="@+id/btnPost" 
         android:layout_alignBottom="@+id/btnPost"
         android:layout_above="@+id/btnPost"
         android:layout_toLeftOf="@+id/btnPost"

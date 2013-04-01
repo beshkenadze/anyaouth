@@ -22,9 +22,11 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.util.Log;
 import net.beshkenadze.anyoauth.utils.MyPreference;
 import org.scribe.builder.ServiceBuilder;
 import org.scribe.builder.api.Api;
+import org.scribe.builder.api.TwitterApi;
 import org.scribe.model.Token;
 import org.scribe.model.Verifier;
 import org.scribe.oauth.OAuthService;
@@ -43,7 +45,7 @@ public abstract class BaseOAuth {
 
     private Class<? extends Api> classApi;
 
-    private String scopes = ",";
+    private String scopes = "";
 
     private OAuthService service;
     private Token requestToken = null;
@@ -58,11 +60,9 @@ public abstract class BaseOAuth {
     }
 
     private ReturnCallback returnCallback = new ReturnCallback() {
-        @Override
         public void onSuccess() {
         }
 
-        @Override
         public void onError() {
         }
     };
@@ -80,8 +80,8 @@ public abstract class BaseOAuth {
             ApplicationInfo ai = context.getPackageManager().getApplicationInfo(context.getPackageName(),
                     PackageManager.GET_META_DATA);
 
-            setConsumerKey(ai.metaData.get(prefix + "Key").toString());
-            setConsumerSecret(ai.metaData.get(prefix + "Secret").toString());
+            setConsumerKey(ai.metaData.getString(prefix + "Key").toString());
+            setConsumerSecret(ai.metaData.getString(prefix + "Secret").toString());
             setCallback(ai.metaData.getString(prefix + "Callback"));
 
             String scopes = ai.metaData.getString(prefix + "Scopes");
@@ -105,12 +105,17 @@ public abstract class BaseOAuth {
     }
 
     public void init() {
-        ServiceBuilder provider = new ServiceBuilder().provider(getClassApi());
-
-        provider.apiKey(getConsumerKey()).apiSecret(getConsumerSecret());
-        provider.scope(getScopes());
-        provider.callback(getCallback());
-        setService(provider.build());
+    	
+    	ServiceBuilder provider = new ServiceBuilder()
+        .provider(getClassApi())
+        .apiKey(getConsumerKey())
+        .apiSecret(getConsumerSecret())
+        .callback(getCallback());
+    	
+    	if (!TextUtils.isEmpty(getScopes()))
+        	provider.scope(getScopes());
+    	
+    	setService(provider.build());
     }
 
     public static OAuthService getService(Context context, Class<? extends Api> classApi, String prefix) {
@@ -151,7 +156,6 @@ public abstract class BaseOAuth {
     public void getAuthUrl(final OnApiAuthUrlReturn callback) {
         if (isNeedToken()) {
             requestToken(new OnTokenReturn() {
-                @Override
                 public void onReturn(Token token) {
                     requestAuthorizationUrl(callback);
                 }
